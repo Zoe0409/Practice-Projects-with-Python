@@ -10,6 +10,7 @@ List of projects:
 
 **3. Bad passwords and the NIST guidelines**: Exploratory analysis of data *Datacamp*
 
+**4. Word frequency in Moby Dick**: Web-scraping and text mining *Datacamp*
 
 
 
