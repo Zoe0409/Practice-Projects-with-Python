@@ -14,5 +14,6 @@ List of projects:
 
 **5. The GitHub History of the Scala Language**: Exploratory analysis of data and Data Visualization *Datacamp*
 
+**6. Who Is Drunk and When in Ames, Iowa?**: Exploratory analysis of data and Data Visualization *Datacamp*
 
 Work in process and Will keep updating the list...
