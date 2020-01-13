@@ -5,7 +5,9 @@ This repository contains the projects that I used to learn and practice my Pytho
 List of projects:
 
 **1. A Network analysis of Game of Thrones**: Exploratory analysis of data with network *Datacamp*
+
 **2. A New Era of Data Analysis in Baseball**: Data Visualization *Datacamp*
+
 **3. Bad passwords and the NIST guidelines**: Exploratory analysis of data *Datacamp*
 
 
