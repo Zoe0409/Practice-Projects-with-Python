@@ -12,7 +12,7 @@ List of projects:
 
 **4. Word frequency in Moby Dick**: Web-scraping and text mining *Datacamp*
 
-
+**5. The GitHub History of the Scala Language**: Exploratory analysis of data and Data Visualization *Datacamp*
 
 
 Work in process and Will keep updating the list...
