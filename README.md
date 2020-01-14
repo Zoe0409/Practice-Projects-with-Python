@@ -16,4 +16,6 @@ List of projects:
 
 **6. Who Is Drunk and When in Ames, Iowa?**: Exploratory analysis of data and Data Visualization *Datacamp*
 
+**7. Mobile Games Ab-testing with Cookie Cats**: A/B testing and Data Visualization *Datacamp*
+
 Work in process and Will keep updating the list...
