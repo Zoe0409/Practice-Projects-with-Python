@@ -18,4 +18,6 @@ List of projects:
 
 **7. Mobile Games Ab-testing with Cookie Cats**: A/B testing and Data Visualization *Datacamp*
 
+**8. Titanic - Machine Learning from Disaster**: Automatic exploratory analysis of data and Machine learning *Kaggle*
+
 Work in process and Will keep updating the list...
