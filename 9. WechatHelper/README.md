@@ -1,6 +1,6 @@
-#WechatHelper
+# WechatHelper
 
-###Set up
+### Set up
 
 ```
 Install some dependencies:  
@@ -8,7 +8,7 @@ Install some dependencies:
 "py -3 -m pip install -r requirements.txt" 
 ```
 
-###Functions
+### Functions
 
 ```
 You can run "python main.py -h" to get more helps.
@@ -24,11 +24,13 @@ You can run "python main.py -h" to get more helps.
 	-k and -c are not necessary optional, use "*" to separate if keywords/contents is more than one.
 ```
 
-###Results
+### Results
 
-Results of the friends analysis will be saved to the folder named *results*
+Results of the friends analysis will be saved to the folder named **results**
 
-###Original author
+### Original author
 
-@CharlesPikachu https://github.com/CharlesPikachu/WechatHelper
+@CharlesPikachu 
+
+https://github.com/CharlesPikachu/WechatHelper
 
