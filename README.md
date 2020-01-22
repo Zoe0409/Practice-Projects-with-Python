@@ -20,4 +20,8 @@ List of projects:
 
 **8. Titanic - Machine Learning from Disaster**: Automatic exploratory analysis of data and Machine learning *Kaggle*
 
+**9. WechatHelper**: Build application *GitHub*
+
+This is the most interesting project so far that you can use this application 'WechatHelper' to analyze the gender and location of your Wechat Friends, check who withdrawed what message, use the robot to do auto-reply. The original source code is from CharlesPikachu and the repository can be found here: https://github.com/CharlesPikachu/WechatHelper
+
 Work in process and Will keep updating the list...
