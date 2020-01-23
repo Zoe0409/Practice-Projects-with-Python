@@ -1,0 +1,233 @@
+---
+title: "IMDB Review Mining"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(echo = FALSE, comment="", warning = FALSE, message = FALSE, tidy.opts=list(width.cutoff=55), tidy = TRUE)
+set.seed(617)
+```
+
+```{r libraries}
+library(data.table)
+library(DT)
+library(stringr)
+#library(textclean)
+library(ggplot2)
+library(ggthemes)
+library(qdap)
+library(textstem)
+library(tidytext)
+library(dplyr)
+library(tidyr)
+library(wordcloud)
+library(RColorBrewer)
+```
+
+
+```{r constants}
+user.id.name <- "userId"
+date.name <- "reviewDate"
+title.name <- "reviewTitle"
+review.name <- "userReview"
+movie.id.name <- "movieId"
+rating.name <- "Rating"
+sentiment.name <- "sentiment"
+num.sentences.name <- "# of sentences"
+num.words.name <- "# of words"
+num.exclamations.name <- "# of exclamations"
+rating.counts.name <- "rating counts"
+#replace.patterns = c("\r")
+```
+
+
+```{r load_data, eval = TRUE}
+#review <- fread(input = "../Data/movie_review_info.csv")
+#review[,eval(num.sentences.name) := str_count(string = get(review.name),pattern = "[A-Za-z,;'\"\\s]+[^.!?]*[.?!]")]
+#review[,eval(num.words.name) := str_count(string = get(review.name),pattern = '\\S+')]
+
+#review[, eval(review.name) := gsub(pattern = paste0(replace.patterns, collapse = "|"), replacement = "", x = get(review.name))]
+#review[, eval(title.name) := gsub(pattern = paste0(replace.patterns, collapse = "|"), replacement = "", x = get(title.name))]
+
+#review[,eval(review.name):=replace_non_ascii(get(review.name), replacement = "", remove.nonconverted = TRUE)]
+#review[,eval(title.name):=replace_non_ascii(get(title.name), replacement = "", remove.nonconverted = TRUE)]
+
+#fwrite(x = review, file = "../Data/review_info.csv")
+
+review <- fread(input = "../Data/review_info.csv", encoding = "Latin-1")
+review[,eval(review.name):=lemmatize_strings(get(review.name))]
+```
+
+## Distribution of the ratings
+
+```{r EDA}
+# Distribution of the ratings
+ggplot(data=review,aes(x= Rating))+
+  geom_histogram(fill='sienna')+
+  theme_economist()
+```
+
+## Average number of exclamation marks in the reviews of each rating
+```{r exclamation}
+review[,eval(num.exclamations.name) := str_count(get(review.name),pattern='!')]
+review_exclamations = review[, .(N.exclamations = mean(get(num.exclamations.name))),by = rating.name]
+setorderv(review_exclamations, "N.exclamations", -1)
+review_exclamations%>%
+  ggplot(aes(x=Rating,y=N.exclamations))+geom_col()+theme_economist()
+#summary(str_count(review[,get(review.name)],pattern='!')) 
+#    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+#  0.0000   0.0000   0.0000   0.6375   1.0000 188.0000 
+```
+
+
+## Common words across all the reviews
+
+```{r common words}
+plot(freq_terms(text.var=review[,get(review.name)],top=25,stopwords = c(Top200Words,"movie","film","watch","it's","really","don't","seem","never","while","lot","i'm","didn't","something","actually","tv", "doesn't")))+
+  theme_economist()
+```
+
+## common words within each rating
+
+```{r common words within each rating}
+words_by_rating = word_list(review[,get(review.name)],
+                            grouping.var=review[,get(rating.name)],
+                            stopwords = c(Top200Words,"movie","film","watch","it's","really","don't","seem","never","while","lot","i'm","didn't","something","actually","tv", "doesn't"),
+                            cut.n = 25)
+
+cat("Rating = 1")
+words_by_rating[1,]
+
+cat("Rating = 2")
+words_by_rating[2,]
+
+cat("Rating = 3")
+words_by_rating[3,]
+
+cat("Rating = 4")
+words_by_rating[4,]
+
+cat("Rating = 5")
+words_by_rating[5,]
+
+cat("Rating = 6")
+words_by_rating[6,]
+
+cat("Rating = 7")
+words_by_rating[7,]
+
+cat("Rating = 8")
+words_by_rating[8,]
+
+cat("Rating = 9")
+words_by_rating[9,]
+
+cat("Rating = 10")
+words_by_rating[10,]
+
+```
+
+## Sentiment analysis -- positive/negative
+
+```{r sentiment analysis}
+##########
+review %>%
+  group_by(userId,movieId)%>%
+  unnest_tokens(output=word,input=userReview)%>%
+  ungroup()%>%
+  inner_join(get_sentiments("bing"))%>%
+  group_by(Rating,sentiment)%>%
+  summarize(n = n())%>%
+  mutate(proportion = n/sum(n))%>%
+  ggplot(aes(x=Rating,y=proportion,fill=sentiment))+geom_col()+theme_economist()
+#############
+
+
+review[!is.na(Rating),]%>%
+  group_by(userId,movieId)%>%
+  unnest_tokens(output = word, input = userReview)%>%
+  inner_join(get_sentiments('bing'))%>%
+  group_by(userId,movieId,Rating)%>%
+  summarize(positivity = sum(sentiment=='positive')/n())%>%
+  ungroup()%>%
+  summarize(correlation = cor(positivity,Rating))
+```
+
+## Sentiment analysis -- a set of emotions
+
+```{r another sentiment analysis}
+review%>%
+  group_by(userId,movieId)%>%
+  unnest_tokens(output = word, input = userReview)%>%
+  inner_join(get_sentiments('nrc'))%>%
+  group_by(sentiment)%>%
+  count()%>%
+  ggplot(aes(x=reorder(sentiment,X = n),y=n,fill=sentiment))+geom_col()+guides(fill=F)+coord_flip()+theme_wsj()
+
+
+review%>%
+  group_by(userId,movieId)%>%
+  unnest_tokens(output = word, input = userReview)%>%
+  inner_join(get_sentiments('nrc'))%>%
+  group_by(userId,movieId,sentiment,Rating)%>%
+  count()%>%
+  group_by(sentiment, Rating)%>%
+  summarize(n = mean(n))%>%
+  ungroup()%>%
+  ggplot(aes(x=Rating,y=n,fill=Rating))+
+  geom_col()+
+  facet_wrap(~sentiment)+
+  guides(fill=F)+coord_flip()
+
+
+
+review%>%
+  group_by(userId,movieId)%>%
+  unnest_tokens(output = word, input = userReview)%>%
+  inner_join(get_sentiments('nrc'),by = 'word')%>%
+  select('sentiment')%>%
+  group_by(sentiment)%>%
+  summarize(freq=n())%>%
+  ungroup() %>%
+  ggplot(aes(x=reorder(sentiment,desc(freq)),y=freq,fill=freq))+geom_bar(position='dodge',stat='identity')+xlab('Sentiment')+ylab('Frequency')+coord_flip()
+```
+
+# Word cloud of all the reviews
+
+```{r a word cloud}
+wordcloudData = 
+  review%>%
+  group_by(userId,movieId)%>%
+  unnest_tokens(output=word,input=userReview)%>%
+  anti_join(rbind(stop_words,c("movie","smart"),c("film","smart"),c("watch","smart"),c("it's","smart"),c("really","smart"),c("don't","smart"),c("seem","smart"),c("never","smart"),c("while","smart"),c("lot","smart"),c("i'm","smart"),c("didn't","smart"),c("something","smart"),c("actually","smart"),c("tv","smart"),c("doesn't","smart")))%>%
+  group_by(word)%>%
+  summarize(freq = n())%>%
+  arrange(desc(freq))%>%
+  ungroup()%>%
+  data.frame()
+
+
+set.seed(617)
+wordcloud(words = wordcloudData$word,wordcloudData$freq,scale=c(2,0.5),max.words = 100,colors=brewer.pal(9,"Dark2"))
+
+```
+## Comparison cloud comparing positive words and negative words
+
+```{r a comparison cloud}
+wordcloud_data= 
+  review %>%
+  group_by(userId,movieId)%>%
+  unnest_tokens(output=word,input=userReview)%>%
+  anti_join(rbind(stop_words,c("movie","smart"),c("film","smart"),c("watch","smart"),c("it's","smart"),c("really","smart"),c("don't","smart"),c("seem","smart"),c("never","smart"),c("while","smart"),c("lot","smart"),c("i'm","smart"),c("didn't","smart"),c("something","smart"),c("actually","smart"),c("tv","smart"),c("doesn't","smart")),by = 'word')%>%
+  group_by(word)%>%
+  inner_join(get_sentiments('bing'),by='word')%>%
+  count(sentiment,word,sort=T)%>%
+  ungroup()%>%
+  spread(key = sentiment,value = 'n',fill = 0)
+wordcloud_data= as.data.frame(wordcloud_data)
+rownames(wordcloud_data) = wordcloud_data[,'word']
+wordcloud_data = wordcloud_data[,c('positive','negative')]
+comparison.cloud(wordcloud_data,scale=c(2,0.5),max.words = 150,rot.per = 0)  
+```
+
