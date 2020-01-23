@@ -2,6 +2,8 @@
 
 This repository contains the projects that I used to learn and practice my Python skills.
 
+**0. Basic Knowledge**: Just some basic knowledge...
+
 List of projects:
 
 **1. A Network analysis of Game of Thrones**: Exploratory analysis of data with network *Datacamp*
