@@ -24,7 +24,9 @@ List of projects:
 
 **9. WechatHelper**: Build application ***(GitHub)***
 
-This is the most interesting project so far that you can use this application 'WechatHelper' to analyze the gender and location of your Wechat Friends, check who withdrawed what message, use the robot to do auto-reply. The original source code is from CharlesPikachu and the repository can be found here: https://github.com/CharlesPikachu/WechatHelper
+This is the most interesting project so far that you can use this application 'WechatHelper' to analyze the gender and location of your Wechat Friends, check who withdrawed what message, use the robot to do auto-reply. 
+
+Reference: CharlesPikachu: https://github.com/CharlesPikachu/WechatHelper
 
 **10. Webscraping IMDB Reviews**: Webscraping and sentiment analysis ***(Personal Interest)***
 
