@@ -28,7 +28,7 @@ You can run "python main.py -h" to get more helps.
 
 Results of the friends analysis will be saved to the folder named **results**
 
-### Original author
+### Reference
 
 @CharlesPikachu 
 
