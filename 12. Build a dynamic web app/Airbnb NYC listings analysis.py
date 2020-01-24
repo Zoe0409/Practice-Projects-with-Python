@@ -111,7 +111,7 @@ pic = st.selectbox("Picture choices:", list(pics.keys()), 0)
 st.image(pics[pic], use_column_width=True, caption=pics[pic])
 
 
-btn = st.button("Celebrate!")
+btn = st.button("Try this button!")
 if btn:
     st.balloons()
 
