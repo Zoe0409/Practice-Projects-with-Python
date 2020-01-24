@@ -28,9 +28,7 @@ This is the most interesting project so far that you can use this application 'W
 
 **10. Webscraping IMDB Reviews**: Webscraping and sentiment analysis *Personal Interest*
 
-**11. LinkedIn Job posting scraping**: Webscraping and data visualization *Personal Interest*
-
-This one is still working in process.
+**11. Using Python to Access Web Data**: Webscraping *Personal Interest*
 
 **12. Build a dynamic web app**: Dynamic web app built with streamlit, data visualization *Personal Interest*
 
