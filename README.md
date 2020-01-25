@@ -36,4 +36,6 @@ Reference: CharlesPikachu: https://github.com/CharlesPikachu/WechatHelper
 
 **13. Cut an img into 9 parts**: Image processing ***(Personal Interest)***
 
+**14. Bank Loan Modelling**: Exploratory analysis of data, data visualization and Machine learning ***(Kaggle)***
+
 Work in process and Will keep updating the list...
