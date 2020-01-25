@@ -34,4 +34,6 @@ Reference: CharlesPikachu: https://github.com/CharlesPikachu/WechatHelper
 
 **12. Build a dynamic web app**: Dynamic web app built with streamlit, data visualization ***(Personal Interest)***
 
+**13. Cut an img into 9 parts**: Image processing ***(Personal Interest)***
+
 Work in process and Will keep updating the list...
