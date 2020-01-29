@@ -38,4 +38,8 @@ Reference: CharlesPikachu: https://github.com/CharlesPikachu/WechatHelper
 
 **14. Bank Loan Modelling**: Exploratory analysis of data, data visualization and Machine learning ***(Kaggle)***
 
+**13. House Price Prediction**:Exploratory analysis of data, data visualization and Machine learning ***(Kaggle)***
+
+**16. Bike Sharing Demand**: Exploratory analysis of data, data visualization and Machine learning ***(Kaggle)***
+
 Work in process and Will keep updating the list...
