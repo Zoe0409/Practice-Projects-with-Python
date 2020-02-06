@@ -44,4 +44,6 @@ Reference: CharlesPikachu: https://github.com/CharlesPikachu/WechatHelper
 
 **17. Generate a radom verification code**: Get familiar with random and pillow ***(Personal Interest)*** 
 
+**18. Generate a random password with different requirements**: Get familiar with random module ***(Personal Interest)*** 
+
 Work in process and Will keep updating the list...
