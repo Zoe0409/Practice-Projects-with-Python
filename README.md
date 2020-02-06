@@ -48,4 +48,6 @@ Reference: CharlesPikachu: https://github.com/CharlesPikachu/WechatHelper
 
 **19. Find large files in your laptop**: Get familiar with os module ***(Personal Interest)***
 
+**20. Generate an activation Email**: Understand the theory of an activation email ***(Personal Interest)***
+
 Work in process and Will keep updating the list...
