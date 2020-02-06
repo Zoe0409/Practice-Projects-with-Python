@@ -46,4 +46,6 @@ Reference: CharlesPikachu: https://github.com/CharlesPikachu/WechatHelper
 
 **18. Generate a random password with different requirements**: Get familiar with random module ***(Personal Interest)*** 
 
+**19. Find large files in your laptop**: Get familiar with os module ***(Personal Interest)***
+
 Work in process and Will keep updating the list...
