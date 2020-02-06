@@ -42,4 +42,6 @@ Reference: CharlesPikachu: https://github.com/CharlesPikachu/WechatHelper
 
 **16. Bike Sharing Demand**: Exploratory analysis of data, data visualization and Machine learning ***(Kaggle)***
 
+**17. Generate a radom verification code.ipynb**: Get familiar with random and pillow ***(Personal Interest)*** 
+
 Work in process and Will keep updating the list...
