@@ -50,4 +50,6 @@ Reference: CharlesPikachu: https://github.com/CharlesPikachu/WechatHelper
 
 **20. Generate an activation Email**: Understand the theory of an activation email ***(Personal Interest)***
 
+**21. Chrome history analysis**: Use sql in python and understand how to extract browsing history of Chrome. Remember to quit Chrome when running this script. ***(Personal Interest)***
+
 Work in process and Will keep updating the list...
