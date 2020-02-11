@@ -54,4 +54,6 @@ Reference: CharlesPikachu: https://github.com/CharlesPikachu/WechatHelper
 
 **22. Facebook Chatting History Analysis** Wordcloud with Python. Generate wordcloud in the shape you want.  ***(Personal Interest)***
 
+**23. nCoV in China** Webscraping and Data Visualization with pyecharts. (Hope China gets well soon!!!)  ***(Personal Interest)***
+
 Work in process and Will keep updating the list...
