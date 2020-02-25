@@ -56,4 +56,8 @@ Reference: CharlesPikachu: https://github.com/CharlesPikachu/WechatHelper
 
 **23. nCoV in China** Webscraping and Data Visualization with pyecharts. (Hope China gets well soon!!!)  ***(Personal Interest)***
 
+**24. RFM Model - segment customers** RFM Model  ***(Personal Interest)***
+
+**25. Bike Sharing Demand** Data Visualization, ML model  ***(Kaggle Competition)***
+
 Work in process and Will keep updating the list...
