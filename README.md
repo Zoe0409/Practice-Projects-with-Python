@@ -1,5 +1,3 @@
-![Hits](https://hitcounter.pythonanywhere.com/count/tag.svg?url=https%3A%2F%2Fgithub.com%2FZoe0409%2FPractice-Projects-with-Python)
-
 # Practice-Projects-with-Python
 
 This repository contains the projects that I was working on to learn and practice my Python skills.
